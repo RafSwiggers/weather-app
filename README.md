@@ -12,3 +12,5 @@ This is an introduction into API's, getting and using information from different
 # Link
 
 [Check out the results here!](https://rafswiggers.github.io/weather-app)
+
+API Key:6d10e96c9fcf49efcd51de0d3c7a7acb
