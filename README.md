@@ -9,5 +9,6 @@ The goal is to make a webpage that lets the user input a city. The webpage then 
 ## Why?
 This is an introduction into API's, getting and using information from different services than our own information and programs.
 
-#Link
+# Link
+
 [Check out the results here!](https://rafswiggers.github.io/weather-app)
