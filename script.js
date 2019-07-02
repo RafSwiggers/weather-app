@@ -8,13 +8,13 @@ const tempDay3 = document.getElementById('tempDayThree');
 const tempDay4 = document.getElementById('tempDayFour');
 const tempDay5 = document.getElementById('tempDayFive');
 cardcontainer = document.getElementById('cardcontainer')
+const week = [];
+const dayOne = [];
+const dayTwo = [];
+const dayThree = [];
+const dayFour = [];
+const dayFive = [];
 
-
-input.addEventListener("keypress", getValue);
-
-function getValue(e) {
-    console.log(e.target.value);
-}
 
 function getWeather() {
     button[0].addEventListener("click", async function(e) {
@@ -22,32 +22,41 @@ function getWeather() {
         let city = input.value;
         let api = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&mode=json&APPID=${key}`;
         let response = await axios.get(api);
-        let temp1 = convertKelvinToCelsius(response.data.list[0].main.temp);
-        let temp2 = convertKelvinToCelsius(response.data.list[8].main.temp);
-        let temp3 = convertKelvinToCelsius(response.data.list[16].main.temp);
-        let temp4 = convertKelvinToCelsius(response.data.list[24].main.temp);
-        let temp5 = convertKelvinToCelsius(response.data.list[32].main.temp);
+        for (i = 0; i < response.data.list.length; i += 8) {
+            week.push(response.data.list[i]);
+        }
+        dayOne.push(week[0]);
+        dayTwo.push(week[1]);
+        dayThree.push(week[2]);
+        dayFour.push(week[3]);
+        dayFive.push(week[4]);
 
-        console.log(response.data);
+        console.log(dayFive);
+        let temp1 = convertKelvinToCelsius(dayOne[0].main.temp);
+        let temp2 = convertKelvinToCelsius(dayTwo[0].main.temp);
+        let temp3 = convertKelvinToCelsius(dayThree[0].main.temp);
+        let temp4 = convertKelvinToCelsius(dayFour[0].main.temp);
+        let temp5 = convertKelvinToCelsius(dayFive[0].main.temp);
+
         tempDay1.innerText = Math.floor(temp1)
         tempDay2.innerText = Math.floor(temp2)
         tempDay3.innerText = Math.floor(temp3)
         tempDay4.innerText = Math.floor(temp4)
         tempDay5.innerText = Math.floor(temp5)
         document.getElementById("descriptionDayOne").innerHTML =
-            response.data.list[0].weather[0].description
+            dayOne[0].weather[0].description
 
         document.getElementById("descriptionDayTwo").innerHTML =
-            response.data.list[8].weather[0].description;
+            dayTwo[0].weather[0].description
 
         document.getElementById("descriptionDayThree").innerHTML =
-            response.data.list[16].weather[0].description;
+            dayThree[0].weather[0].description
 
         document.getElementById("descriptionDayFour").innerHTML =
-            response.data.list[32].weather[0].description;
+            dayFour[0].weather[0].description
 
         document.getElementById("descriptionDayFive").innerHTML =
-            response.data.list[39].weather[0].description;
+            dayFive[0].weather[0].description
 
     })
 
