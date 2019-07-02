@@ -7,7 +7,7 @@ const tempDay2 = document.getElementById('tempDayTwo');
 const tempDay3 = document.getElementById('tempDayThree');
 const tempDay4 = document.getElementById('tempDayFour');
 const tempDay5 = document.getElementById('tempDayFive');
-const cardcontainer = document.getElementById('cardcontainer')
+cardcontainer = document.getElementById('cardcontainer')
 
 
 input.addEventListener("keypress", getValue);
@@ -18,6 +18,7 @@ function getValue(e) {
 
 function getWeather() {
     button[0].addEventListener("click", async function(e) {
+        cardcontainer.style.display = "grid";
         let city = input.value;
         let api = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&mode=json&APPID=${key}`;
         let response = await axios.get(api);
@@ -49,7 +50,7 @@ function getWeather() {
             response.data.list[39].weather[0].description;
 
     })
-    cardcontainer.style.display = "-ms-grid";
+
 }
 getWeather();
 
