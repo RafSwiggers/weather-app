@@ -7,6 +7,7 @@ const tempDay2 = document.getElementById('tempDayTwo');
 const tempDay3 = document.getElementById('tempDayThree');
 const tempDay4 = document.getElementById('tempDayFour');
 const tempDay5 = document.getElementById('tempDayFive');
+const cardcontainer = document.getElementById('cardcontainer')
 
 
 input.addEventListener("keypress", getValue);
@@ -32,11 +33,23 @@ function getWeather() {
         tempDay3.innerText = Math.floor(temp3)
         tempDay4.innerText = Math.floor(temp4)
         tempDay5.innerText = Math.floor(temp5)
+        document.getElementById("descriptionDayOne").innerHTML =
+            response.data.list[0].weather[0].description
 
+        document.getElementById("descriptionDayTwo").innerHTML =
+            response.data.list[8].weather[0].description;
 
+        document.getElementById("descriptionDayThree").innerHTML =
+            response.data.list[16].weather[0].description;
 
+        document.getElementById("descriptionDayFour").innerHTML =
+            response.data.list[32].weather[0].description;
+
+        document.getElementById("descriptionDayFive").innerHTML =
+            response.data.list[39].weather[0].description;
 
     })
+    cardcontainer.style.display = "-ms-grid";
 }
 getWeather();
 
