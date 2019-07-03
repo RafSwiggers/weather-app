@@ -19,6 +19,9 @@ const dayTwo = [];
 const dayThree = [];
 const dayFour = [];
 const dayFive = [];
+const dateOne = "";
+const days = document.getElementsByClassName("day");
+
 
 
 function getWeather() {
@@ -68,6 +71,24 @@ function getWeather() {
         iconThree.src = "http://openweathermap.org/img/w/" + dayThree[0].weather[0].icon + ".png";
         iconFour.src = "http://openweathermap.org/img/w/" + dayFour[0].weather[0].icon + ".png";
         iconFive.src = "http://openweathermap.org/img/w/" + dayFive[0].weather[0].icon + ".png";
+        datestringlong1 = dayOne[0].dt_txt.toString();
+        date1 = datestringlong1.substring(0, 10);
+        datestringlong2 = dayTwo[0].dt_txt.toString();
+        date2 = datestringlong2.substring(0, 10);
+        datestringlong3 = dayThree[0].dt_txt.toString();
+        date3 = datestringlong3.substring(0, 10);
+        datestringlong4 = dayFour[0].dt_txt.toString();
+        date4 = datestringlong4.substring(0, 10);
+        datestringlong5 = dayFive[0].dt_txt.toString();
+        date5 = datestringlong5.substring(0, 10);
+        days[0].innerText = date1;
+        days[1].innerText = date2;
+        days[2].innerText = date3;
+        days[3].innerText = date4;
+        days[4].innerText = date5;
+
+
+
 
 
     })

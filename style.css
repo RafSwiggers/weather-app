@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Oswald|Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Shadows+Into+Light&display=swap");
 h1,
 h2,
 h3,
@@ -8,18 +8,19 @@ span {
 }
 
 h2 {
-    font-family: "oswald";
+    font-family: "playfair display";
     font-size: 30px;
 }
 
 p,
 button {
-    font-family: "oswald";
+    font-family: "playfair display";
 }
 
 #pickCity {
     text-align: center;
     padding: 10px;
+    color: whitesmoke;
 }
 
 input {
@@ -35,7 +36,6 @@ h3 {
 .weather {
     width: 90%;
     height: 40vh;
-    border: 1px solid black;
     margin: 5px auto;
     display: -ms-grid;
     display: grid;
@@ -47,7 +47,7 @@ h3 {
 }
 
 .degrees {
-    font-family: "oswald";
+    font-family: "playfair display";
     font-size: 20px;
     display: -ms-grid;
     display: grid;
@@ -73,12 +73,31 @@ h3 {
 }
 
 body {
-    background: #667db6;
+    background: #2176FF;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    background: -webkit-linear-gradient(to right, #2176FF, #0082c8, #0082c8, #667db6);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    background: linear-gradient(to right, #2176FF, #0082c8, #0082c8, #667db6);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+}
+
+#button {
+    background-color: #FFC857;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+img {
+    width: 50px;
+    height: 50px;
 }
 
 
