@@ -8,6 +8,11 @@ const tempDay3 = document.getElementById('tempDayThree');
 const tempDay4 = document.getElementById('tempDayFour');
 const tempDay5 = document.getElementById('tempDayFive');
 cardcontainer = document.getElementById('cardcontainer')
+const iconOne = document.getElementById('iconDayOne');
+const iconTwo = document.getElementById('iconDayTwo');
+const iconThree = document.getElementById('iconDayThree');
+const iconFour = document.getElementById('iconDayFour');
+const iconFive = document.getElementById('iconDayFive');
 const week = [];
 const dayOne = [];
 const dayTwo = [];
@@ -57,6 +62,13 @@ function getWeather() {
 
         document.getElementById("descriptionDayFive").innerHTML =
             dayFive[0].weather[0].description
+
+        iconOne.src = "http://openweathermap.org/img/w/" + dayOne[0].weather[0].icon + ".png";
+        iconTwo.src = "http://openweathermap.org/img/w/" + dayTwo[0].weather[0].icon + ".png";
+        iconThree.src = "http://openweathermap.org/img/w/" + dayThree[0].weather[0].icon + ".png";
+        iconFour.src = "http://openweathermap.org/img/w/" + dayFour[0].weather[0].icon + ".png";
+        iconFive.src = "http://openweathermap.org/img/w/" + dayFive[0].weather[0].icon + ".png";
+
 
     })
 
