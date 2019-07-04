@@ -21,6 +21,7 @@ const dayFour = [];
 const dayFive = [];
 const dateOne = "";
 const days = document.getElementsByClassName("day");
+const keyup = "5c7a3ad73173f096501026c20378f643a7bf804bf3c2bbf6732986486c70f513";
 
 
 
@@ -87,7 +88,10 @@ function getWeather() {
         days[3].innerText = date4;
         days[4].innerText = date5;
 
-
+        let apiup = `https://api.unsplash.com/photos/random/?query=${city}&client_id=${keyup}`;
+        let responseup = await axios.get(apiup);
+        var body = document.getElementsByTagName('body')[0];
+        body.style.backgroundImage = `url("${responseup.data.urls.regular}")`
 
 
 
