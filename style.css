@@ -20,7 +20,7 @@ button {
 #pickCity {
     text-align: center;
     padding: 10px;
-    color: whitesmoke;
+    color: black;
 }
 
 input {
@@ -45,7 +45,7 @@ h3 {
     padding: 25px 5px;
     color: black;
     background-color: whitesmoke;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .degrees {
@@ -74,16 +74,8 @@ h3 {
     display: none;
 }
 
-body {
-    background: url('/bg.jpeg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
 #button {
-    background-color: #F9CB40;
+    background-color: royalblue;
     /* Green */
     border: none;
     color: white;
