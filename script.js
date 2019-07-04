@@ -4,11 +4,7 @@ const button = document.getElementsByTagName("button");
 const today = new Date;
 const temperature = document.getElementsByClassName('temperature')
 cardcontainer = document.getElementById('cardcontainer')
-const iconOne = document.getElementById('iconDayOne');
-const iconTwo = document.getElementById('iconDayTwo');
-const iconThree = document.getElementById('iconDayThree');
-const iconFour = document.getElementById('iconDayFour');
-const iconFive = document.getElementById('iconDayFive');
+const icon = document.getElementsByClassName('icon')
 const description = document.getElementsByClassName('description')
 const week = [];
 const dayOne = [];
@@ -36,9 +32,6 @@ var weekday = [
     "Friday",
     "Saturday"
 ];
-
-
-
 
 function getWeather() {
     button[0].addEventListener("click", async function(e) {
@@ -73,12 +66,11 @@ function getWeather() {
         description[3].innerHTML = dayFour[0].weather[0].description
         description[4].innerHTML = dayFive[0].weather[0].description
 
-        iconOne.src = "http://openweathermap.org/img/w/" + dayOne[0].weather[0].icon + ".png";
-        iconTwo.src = "http://openweathermap.org/img/w/" + dayTwo[0].weather[0].icon + ".png";
-        iconThree.src = "http://openweathermap.org/img/w/" + dayThree[0].weather[0].icon + ".png";
-        iconFour.src = "http://openweathermap.org/img/w/" + dayFour[0].weather[0].icon + ".png";
-        iconFive.src = "http://openweathermap.org/img/w/" + dayFive[0].weather[0].icon + ".png";
-
+        icon[0].src = "http://openweathermap.org/img/w/" + dayOne[0].weather[0].icon + ".png";
+        icon[1].src = "http://openweathermap.org/img/w/" + dayTwo[0].weather[0].icon + ".png";
+        icon[2].src = "http://openweathermap.org/img/w/" + dayThree[0].weather[0].icon + ".png";
+        icon[3].src = "http://openweathermap.org/img/w/" + dayFour[0].weather[0].icon + ".png";
+        icon[4].src = "http://openweathermap.org/img/w/" + dayFive[0].weather[0].icon + ".png";
 
         days[0].innerHTML = weekday[d.getDay()];
         days[1].innerHTML = weekday[d.getDay() + 1];
@@ -86,20 +78,13 @@ function getWeather() {
         days[3].innerHTML = weekday[d.getDay() + 3];
         days[4].innerHTML = weekday[d.getDay() + 4];
 
-
-
         let apiup = `https://api.unsplash.com/photos/random/?query=${city}&client_id=${keyup}`;
         let responseup = await axios.get(apiup);
         var body = document.getElementsByTagName('body')[0];
         body.style.backgroundImage = `url("${responseup.data.urls.regular}")`
-
-
-
     })
-
 }
 getWeather();
-
 
 function convertKelvinToCelsius(kelvin) {
     if (kelvin < (0)) {
