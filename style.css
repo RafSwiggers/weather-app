@@ -43,7 +43,9 @@ h3 {
     grid-template-rows: 20% 80%;
     text-align: center;
     padding: 25px 5px;
-    background: whitesmoke;
+    color: black;
+    background-color: whitesmoke;
+    opacity: 0.6;
 }
 
 .degrees {
@@ -73,16 +75,15 @@ h3 {
 }
 
 body {
-    background: #2176FF;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2176FF, #0082c8, #0082c8, #667db6);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2176FF, #0082c8, #0082c8, #667db6);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: url('/bg.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #button {
-    background-color: #FFC857;
+    background-color: #F9CB40;
     /* Green */
     border: none;
     color: white;
