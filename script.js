@@ -2,17 +2,14 @@ const key = "ee50b5e24279fee77fa436c9b704948f";
 const input = document.getElementById("input-text");
 const button = document.getElementsByTagName("button");
 const today = new Date;
-const tempDay1 = document.getElementById('tempDayOne');
-const tempDay2 = document.getElementById('tempDayTwo');
-const tempDay3 = document.getElementById('tempDayThree');
-const tempDay4 = document.getElementById('tempDayFour');
-const tempDay5 = document.getElementById('tempDayFive');
+const temperature = document.getElementsByClassName('temperature')
 cardcontainer = document.getElementById('cardcontainer')
 const iconOne = document.getElementById('iconDayOne');
 const iconTwo = document.getElementById('iconDayTwo');
 const iconThree = document.getElementById('iconDayThree');
 const iconFour = document.getElementById('iconDayFour');
 const iconFive = document.getElementById('iconDayFive');
+const description = document.getElementsByClassName('description')
 const week = [];
 const dayOne = [];
 const dayTwo = [];
@@ -22,6 +19,24 @@ const dayFive = [];
 const dateOne = "";
 const days = document.getElementsByClassName("day");
 const keyup = "5c7a3ad73173f096501026c20378f643a7bf804bf3c2bbf6732986486c70f513";
+var d = new Date();
+var weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+];
+
 
 
 
@@ -40,38 +55,37 @@ function getWeather() {
         dayFour.push(week[3]);
         dayFive.push(week[4]);
 
-        console.log(dayFive);
         let temp1 = convertKelvinToCelsius(dayOne[0].main.temp);
         let temp2 = convertKelvinToCelsius(dayTwo[0].main.temp);
         let temp3 = convertKelvinToCelsius(dayThree[0].main.temp);
         let temp4 = convertKelvinToCelsius(dayFour[0].main.temp);
         let temp5 = convertKelvinToCelsius(dayFive[0].main.temp);
 
-        tempDay1.innerText = Math.floor(temp1)
-        tempDay2.innerText = Math.floor(temp2)
-        tempDay3.innerText = Math.floor(temp3)
-        tempDay4.innerText = Math.floor(temp4)
-        tempDay5.innerText = Math.floor(temp5)
-        document.getElementById("descriptionDayOne").innerHTML =
-            dayOne[0].weather[0].description
+        temperature[0].innerText = Math.floor(temp1)
+        temperature[1].innerText = Math.floor(temp2)
+        temperature[2].innerText = Math.floor(temp3)
+        temperature[3].innerText = Math.floor(temp4)
+        temperature[4].innerText = Math.floor(temp5)
 
-        document.getElementById("descriptionDayTwo").innerHTML =
-            dayTwo[0].weather[0].description
-
-        document.getElementById("descriptionDayThree").innerHTML =
-            dayThree[0].weather[0].description
-
-        document.getElementById("descriptionDayFour").innerHTML =
-            dayFour[0].weather[0].description
-
-        document.getElementById("descriptionDayFive").innerHTML =
-            dayFive[0].weather[0].description
+        description[0].innerHTML = dayOne[0].weather[0].description
+        description[1].innerHTML = dayTwo[0].weather[0].description
+        description[2].innerHTML = dayThree[0].weather[0].description
+        description[3].innerHTML = dayFour[0].weather[0].description
+        description[4].innerHTML = dayFive[0].weather[0].description
 
         iconOne.src = "http://openweathermap.org/img/w/" + dayOne[0].weather[0].icon + ".png";
         iconTwo.src = "http://openweathermap.org/img/w/" + dayTwo[0].weather[0].icon + ".png";
         iconThree.src = "http://openweathermap.org/img/w/" + dayThree[0].weather[0].icon + ".png";
         iconFour.src = "http://openweathermap.org/img/w/" + dayFour[0].weather[0].icon + ".png";
         iconFive.src = "http://openweathermap.org/img/w/" + dayFive[0].weather[0].icon + ".png";
+
+
+        days[0].innerHTML = weekday[d.getDay()];
+        days[1].innerHTML = weekday[d.getDay() + 1];
+        days[2].innerHTML = weekday[d.getDay() + 2];
+        days[3].innerHTML = weekday[d.getDay() + 3];
+        days[4].innerHTML = weekday[d.getDay() + 4];
+
 
 
         let apiup = `https://api.unsplash.com/photos/random/?query=${city}&client_id=${keyup}`;
