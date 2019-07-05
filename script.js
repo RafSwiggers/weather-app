@@ -16,6 +16,7 @@ const dateOne = "";
 const days = document.getElementsByClassName("day");
 const keyup = "5c7a3ad73173f096501026c20378f643a7bf804bf3c2bbf6732986486c70f513";
 var d = new Date();
+var geocoder;
 var weekday = [
     "Sunday",
     "Monday",
@@ -82,6 +83,8 @@ function getWeather() {
         let responseup = await axios.get(apiup);
         var body = document.getElementsByTagName('body')[0];
         body.style.backgroundImage = `url("${responseup.data.urls.regular}")`
+
+        console.log(response.data)
     })
 }
 getWeather();
@@ -92,4 +95,28 @@ function convertKelvinToCelsius(kelvin) {
     } else {
         return (kelvin - 273.15);
     }
+}
+
+navigator.geolocation.getCurrentPosition(function(position) {
+    console.log(position.coords.latitude, position.coords.longitude);
+});
+
+
+
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+
+    getLocation();
+    showPosition();
 }
