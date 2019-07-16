@@ -34,6 +34,32 @@ var weekday = [
     "Saturday"
 ];
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(setvars);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function setvars(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+}
+
+getLocation();
+setvars();
+
+function loadWeather() {
+    document.addEventListener("load", async function(e) {
+        let api = `api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}`;
+        let response = await axios.get(api);
+        console.log(response);
+
+    });
+}
+
 function getWeather() {
     button[0].addEventListener("click", async function(e) {
         cardcontainer.style.display = "grid";
@@ -100,23 +126,3 @@ function convertKelvinToCelsius(kelvin) {
 navigator.geolocation.getCurrentPosition(function(position) {
     console.log(position.coords.latitude, position.coords.longitude);
 });
-
-
-
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-
-    getLocation();
-    showPosition();
-}
